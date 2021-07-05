@@ -1,9 +1,8 @@
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Navbar from './components/layout/Navbar';
 import Users from './components/layout/Users';
 import Search from './components/Search';
-import Alert from './components/Alert';
 import About from './components/Pages/about.js';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import User from './components/User';

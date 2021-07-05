@@ -1,14 +1,11 @@
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom';
-import { useContext } from 'react';
-import { finderContext } from '../../App';
 const UserItem = ({user}) => {
 
     const {
         avatar_url,
         login,
     } = user
-    const {getUser}=useContext(finderContext)
     return ( 
         <div className= "card text-center">
                 <img className="round-img" src={avatar_url} alt="" style={{width:"60px"}}/>

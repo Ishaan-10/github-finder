@@ -1,11 +1,10 @@
 import { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { finderContext } from '../App';
-import Spinner from './layout/Spinner';
 import { Link } from 'react-router-dom';
 import Repo from './Repo';
 
-const User = (props) => {
+const User = () => {
 
     const query = useParams();
     const [loadingData, setLoadingData] = useState(false);
@@ -28,17 +27,15 @@ const User = (props) => {
         public_repos,
         public_gists,
         hireable,
-        created_at
     } = user;
 
-    useEffect(async () => {
+    useEffect(() => {
 
         setLoadingData(true);
         getUser(query.login);
         getUserRepo(query.login);
         setLoadingData(false);
     }, [])
-    console.log(repos);
 
     if (loadingData) return (
         <h2>Loading....</h2>
