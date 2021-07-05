@@ -1,11 +1,19 @@
-const Alert = ({alert}) => {
-    return ( 
+import { finderContext } from "../App";
+import { useContext } from "react";
 
-                <div className={`alert alert-${alert.type}`}>
-                    {alert.msg}
-                </div>
-        
+const Alert = () => {
+
+    const { alert } = useContext(finderContext);
+    const { message, type } = alert;
+    return (
+        <div className="conatiner">
+            <div className="alert-dark alert">
+                {message}
+            </div>
+        </div>
+
+
     );
 }
- 
+
 export default Alert;

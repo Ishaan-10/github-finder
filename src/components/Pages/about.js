@@ -1,8 +1,10 @@
 const About = () => {
     return (
-        <div>
-            <h4>About this app</h4>
+        <div className="container left-align">
+            <h3>About this app</h3>
             <p>Page to view github information</p>
+            <p>Made using React and Github API</p>
+            <p>Made by Ishaan Bhola</p>
         </div>
     );
 }

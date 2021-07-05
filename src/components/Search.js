@@ -1,26 +1,34 @@
 import {useState} from 'react';
+import { useContext } from 'react';
+import { finderContext } from '../App';
+import Alert from './Alert';
 
 const Search = (props) => {
 
+
+
+
     const [search, setSearch] = useState('');
+    const {sendAlert} = useContext(finderContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if(search===''){
-            props.sendAlert('Please enter something','light');
+            sendAlert('Please enter something','light');
         }else{
-            props.searchUsers(search);
-            setSearch('');
+            props.searchUsers(search);            
         }
-
     }
 
 
     return ( 
-        <div>
+        <div className="container">
+            <h1>Search</h1>
+            {props.alert && <Alert />}
             <form onSubmit={handleSubmit} className='form'>
                 <input type="text" 
                 name="text" 
+                value={search}
                 placeholder="Search Users..." 
                 onChange={(e) => {
                     setSearch(e.target.value)
@@ -28,7 +36,10 @@ const Search = (props) => {
                 />
                 <input type="submit" value="Search" className="btn btn-dark btn-block" />
             </form>
-            {props.showClear && <button className="btn btn-light btn-block" onClick={props.clearUsers}>Clear Users</button>}
+            {props.showClear && <button className="btn btn-light btn-block" onClick={()=>{
+                props.clearUsers()
+                setSearch('');
+            }}>Clear Users</button>}
         </div>
      );
 }
