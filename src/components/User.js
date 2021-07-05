@@ -35,7 +35,8 @@ const User = () => {
         getUser(query.login);
         getUserRepo(query.login);
         setLoadingData(false);
-    }, [])
+    }, [getUser,getUserRepo,query.login])
+    
 
     if (loadingData) return (
         <h2>Loading....</h2>
